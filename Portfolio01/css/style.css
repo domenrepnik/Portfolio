@@ -40,25 +40,51 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+* {
+  box-sizing: border-box; }
+  *:before, *:after {
+    box-sizing: border-box; }
+
 html, body {
-  color: white; }
+  width: 100%;
+  height: 100%; }
 
-body {
-  background: #202530;
-  height: 100vh;
-  text-align: center; }
-
-.home {
+.flexbox-parent {
   width: 100%;
   height: 100%;
-  box-shadow: inset 0 0 0 10px white; }
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  /* align items in Main Axis */
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  /* align items in Cross Axis */
+  -webkit-align-content: stretch;
+      -ms-flex-line-pack: stretch;
+          align-content: stretch;
+  /* Extra space in Cross Axis */
+  background: rgba(255, 255, 255, 0.1); }
 
-.header {
-  width: 100%;
-  height: 80px;
-  box-shadow: inset 0 0 0 1px white; }
+.flexbox-item-grow {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1
+  /* flex: 1 1 auto; */ }
 
-nav {
+.fill-area {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -68,30 +94,110 @@ nav {
   -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
-  background: rgba(200, 200, 0, 0.5); }
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  /* align items in Main Axis */
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  /* align items in Cross Axis */
+  -webkit-align-content: stretch;
+      -ms-flex-line-pack: stretch;
+          align-content: stretch
+  /* Extra space in Cross Axis */ }
+
+.fill-area-content {
+  /* Needed for when the area gets squished too far and there is content that can't be displayed */
+  overflow: auto; }
+
+.nav-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+  @media screen and (max-width: 600px) {
+    .nav-container {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column; } }
 
 .item {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
       -ms-flex: 1;
-          flex: 1;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  -webkit-flex-shrink: 1;
-      -ms-flex-negative: 1;
-          flex-shrink: 1;
-  -webkit-flex-basis: auto;
-      -ms-flex-preferred-size: auto;
-          flex-basis: auto;
-  box-shadow: inset 0 0 0 1px #666; }
+          flex: 1; }
 
-.footer {
-  position: absolute;
-  bottom: 0px;
-  width: 100%;
-  height: 80px;
-  box-shadow: inset 0 0 0 1px white; }
+body {
+  color: #cccccc;
+  font-size: 16px;
+  font-family: "Titillium", Arial, sans-serif;
+  line-height: 1.25em; }
+
+h1 {
+  font-size: 1em;
+  text-transform: uppercase; }
+
+p {
+  font-weight: 300;
+  font-size: 0.85em;
+  color: rgba(255, 255, 255, 0.1);
+  padding-top: 2em;
+  padding-bottom: 2em; }
+
+.flexbox-item.header {
+  background: #253447;
+  height: 60px; }
+.flexbox-item.footer {
+  background: -webkit-linear-gradient(#344346, #152025);
+  background: linear-gradient(#344346, #152025);
+  height: 60px;
+  z-index: 10;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.4), 0 0 10px rgba(0, 0, 0, 0.3); }
+.flexbox-item.content {
+  background: #4D5D6C; }
+
+.item {
+  padding: 2em;
+  text-align: center;
+  background: -webkit-linear-gradient(#344346, #152025);
+  background: linear-gradient(#344346, #152025);
+  -webkit-transition: ease-in-out 150ms;
+          transition: ease-in-out 150ms;
+  z-index: 1; }
+  .item:hover {
+    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.4), inset 0 0 10px rgba(0, 0, 0, 0.3);
+    color: white; }
+
+.about {
+  background-color: #152025; }
+
+.film {
+  /*background:
+   * url("../img/film.png")
+   * size: cover
+   * position: center */ }
+
+.music {
+  /*background:
+   * url("../img/music.png")
+   * size: cover
+   * position: center */ }
+
+.design {
+  /*background:
+   * url("../img/design.png")
+   * size: cover
+   * position: center */ }
+
+.web {
+  /*background:
+   * url("../img/web.png")
+   * size: cover
+   * position: center */ }
 
 /*# sourceMappingURL=style.css.map */

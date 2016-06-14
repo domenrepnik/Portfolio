@@ -1,39 +1,49 @@
+$mobile: 600px
+
+*
+  box-sizing: border-box
+  &:before, &:after
+    box-sizing: border-box
+
 html, body
-  color: white
-
-body
-  background: #202530
-  height: 100vh
-  text-align: center
-
-.home
   width: 100%
   height: 100%
-  box-shadow: inset 0 0 0 10px white
 
-.header
+.flexbox-parent
   width: 100%
-  height: 80px
-  box-shadow: inset 0 0 0 1px white
+  height: 100%
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+  /* align items in Main Axis
+  align-items: stretch
+  /* align items in Cross Axis
+  align-content: stretch
+  /* Extra space in Cross Axis
+  background: rgba(255, 255, 255, 0.1)
 
-nav
+.flexbox-item-grow
+  flex: 1
+  /* flex: 1 1 auto;
+
+.fill-area
   display: flex
   flex-direction: row
-  background: rgba(200,200,0,0.5)
+  justify-content: flex-start
+  /* align items in Main Axis
+  align-items: stretch
+  /* align items in Cross Axis
+  align-content: stretch
+  /* Extra space in Cross Axis
+
+.fill-area-content
+  /* Needed for when the area gets squished too far and there is content that can't be displayed
+  overflow: auto
+
+.nav-container
+  display: flex
+  @media screen and (max-width: $mobile)
+    flex-direction: column
 
 .item
   flex: 1
-  flex-grow: 1
-  flex-shrink: 1
-  flex-basis: auto
-
-  box-shadow: inset 0 0 0 1px #666
-
-
-
-.footer
-  position: absolute
-  bottom: 0px
-  width: 100%
-  height: 80px
-  box-shadow: inset 0 0 0 1px white
